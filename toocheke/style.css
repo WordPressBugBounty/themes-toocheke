@@ -1,0 +1,4078 @@
+/*!
+Theme Name: Toocheke
+Theme URI: https://www.toocheke.com/
+Author: LeeToo
+Author URI: https://leetoo.net/
+Description: A mobile-friendly (responsive) WordPress theme designed for publishing webcomics and manga.  It has been developed using Bootstrap 4, which makes it mobile and tablets friendly. To get the best out of the Toocheke theme, please make sure you download the Toocheke Companion plugin, https://wordpress.org/plugins/toocheke-companion/. This will enable you to post comics, and get the most out of what the theme has to offer. Check the demo at http://theme.toocheke.com/.
+Version: 1.2.30
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 7.1
+Requires PHP: 7.4
+Text Domain: toocheke
+Tags: entertainment, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, threaded-comments, translation-ready
+
+*/
+
+/*--------------------------------------------------------------
+# Body Styles 
+--------------------------------------------------------------*/
+
+html,
+body {
+	max-width: 100% !important;
+	overflow-x: hidden !important;
+}
+
+html {
+	line-height: 1.15;
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	max-width: 100%;
+	margin: 0;
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	background-color: #f5f5f5;
+	margin: 0;
+	margin-bottom: 45px;
+	color: #000;
+	background-attachment: fixed !important;
+}
+
+body#tinymce {
+	background: #fff !important;
+}
+
+body,
+input,
+textarea,
+select,
+button,
+table {
+	font: 1em/1.75em Hind;
+	font-family: 'Hind', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: normal;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+}
+
+body#tinymce {
+	background: #fff !important;
+}
+
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+
+a,
+a:visited {
+	color: #10ae98;
+}
+
+a:hover,
+a:focus,
+a:active,
+.manga-grid-item-container:hover .manga-grid-item-title {
+	color: #F15A5A;
+}
+
+a:focus {
+	outline: thin dotted !important;
+}
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+body.single-comics {
+	margin-top: 0px;
+	/* Margin bottom by footer height */
+}
+
+img {
+	border-style: none;
+}
+
+/* Misc
+	 ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+	display: none;
+}
+
+/* Forms
+	 ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	/* 1 */
+	font-size: 100%;
+	/* 1 */
+	line-height: 1.15;
+	/* 1 */
+	margin: 0;
+	/* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input {
+	/* 1 */
+	overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select {
+	/* 1 */
+	text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+
+legend {
+	box-sizing: border-box;
+	/* 1 */
+	color: inherit;
+	/* 2 */
+	display: table;
+	/* 1 */
+	max-width: 100%;
+	/* 1 */
+	padding: 0;
+	/* 3 */
+	white-space: normal;
+	/* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+	vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+	overflow: auto;
+	padding: 0.5rem !important;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	/* 1 */
+	padding: 0;
+	/* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	/* 1 */
+	outline-offset: -2px;
+	/* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	/* 1 */
+	font: inherit;
+	/* 2 */
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+	display: none;
+}
+
+/* Style up inputs */
+
+legend {
+	border-bottom: 1px solid #ddd;
+}
+
+::-webkit-input-placeholder {
+	/* Chrome/Opera/Safari */
+	color: #ccc;
+	font-weight: normal !important;
+}
+
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #ccc;
+	font-weight: normal !important;
+}
+
+:-ms-input-placeholder {
+	/* IE 10+ */
+	color: #ccc;
+	font-weight: normal !important;
+}
+
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #ccc;
+	font-weight: normal !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+textarea,
+.form-control,
+.checkout-input,
+select.form-control {
+	margin: 0;
+	padding: 0 10px;
+	background: #fff;
+	border: 1px solid #DDDDDD;
+	font-family: 'Lato', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif !important;
+	font-size: 12px;
+	font-weight: 400;
+	color: #404041;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-o-transition: all .3s;
+	-moz-transition: all .3s;
+	-webkit-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+.form-control,
+.checkout-input,
+select.form-control {
+	height: 35px;
+	line-height: 35px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+	outline: 0;
+	background: #fff;
+	border: 1px solid #10ae98;
+	color: #000;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+textarea {
+	width: 100%;
+}
+
+input[type="number"] {
+	width: 45px;
+	padding: 0px 5px;
+}
+
+input#s.form-control.search-control {
+	margin-right: 10px !important;
+}
+
+input[type="checkbox"] {
+	margin-top: .3rem;
+	margin-right: .5rem;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button {
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	-webkit-appearance: button;
+	color: #fff;
+	background-color: #f15a5a;
+	border: 1px solid #f15a5a;
+	margin-bottom: .75rem;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+button:hover {
+	background-color: #f15a5a;
+	border: 1px solid #f15a5a;
+	opacity: 0.85;
+}
+
+.btn-success {
+	background-color: #10ae98;
+	border: 1px solid #10ae98;
+}
+
+.btn-success:hover {
+	background-color: #0f8d7c;
+	border-color: #0a6155;
+}
+
+.btn-danger {
+	background-color: #f15a5a;
+	border: 1px solid #f15a5a;
+}
+
+.btn-danger:hover {
+	background-color: #f15a5a;
+	border: 1px solid #f15a5a;
+	opacity: 0.85;
+}
+
+.btn-danger:focus {
+	color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+#content {
+	overflow: hidden;
+}
+
+/* Do not show the outline on the skip link target. */
+
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Navbar 
+--------------------------------------------------------------*/
+
+
+.navbar-brand {
+	padding: 0;
+}
+
+/* remove navbar button stying */
+
+button.navbar-toggler {
+	background: none !important;
+	border: none !important;
+	background-color: none !important;
+	margin-bottom: 0;
+	/* remove the blue outline when active or focused */
+	/* basic styles for each icon bar */
+	/* styles for when .navbar is closed */
+}
+
+.navbar {
+	padding: 0 1rem;
+	min-height: 45px;
+	box-shadow: 0 5px 11px 0 rgba(50, 50, 50, .08);
+	z-index: 500;
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus {
+	outline: 0;
+}
+
+.navbar-toggler .icon-bar {
+	background-color: #10ae98;
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	margin: 4px 0 4px 0;
+	transition: all 0.2s;
+	/* custom .navbar-light .icon-bar background */
+	/* .navbar open top .icon-bar rotated down 45° */
+	/* .navbar open middle .icon-bar invisible */
+	/* .navbar open bottom .icon-bar rotated up 45° */
+}
+
+.navbar-light .navbar-toggler .icon-bar {
+	background: #10ae98;
+}
+
+.navbar-toggler .icon-bar:nth-of-type(1) {
+	transform: rotate(45deg);
+	transform-origin: 10% 10%;
+}
+
+.navbar-toggler .icon-bar:nth-of-type(2) {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.navbar-toggler .icon-bar:nth-of-type(3) {
+	transform: rotate(-45deg);
+	transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .icon-bar {
+	/* .navbar closed top .icon-bar no rotation - straight */
+	/* .navbar open middle .icon-bar visible */
+	/* .navbar open bottom .icon-bar no rotation - straight */
+}
+
+.navbar-toggler.collapsed .icon-bar:nth-of-type(1) {
+	transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .icon-bar:nth-of-type(2) {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.navbar-toggler.collapsed .icon-bar:nth-of-type(3) {
+	transform: rotate(0);
+}
+
+.navbar-light .navbar-nav .nav-link,
+a.dropdown-item {
+	color: #10ae98;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #F15A5A;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+	color: #F15A5A;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+	background-color: #ffffff;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+	color: #ffffff;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+	background: #F15A5A;
+	color: #ffffff;
+}
+
+.navbar-light .navbar-nav>.active>a,
+.navbar-light .navbar-nav>.active>a:hover,
+.navbar-light .navbar-nav>.active>a:focus {
+	border-bottom: 3px solid #F15A5A;
+	background-color: transparent;
+}
+
+.navbar-nav>.menu-item {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	position: relative;
+	/*overflow: hidden;*/
+}
+
+.navbar-nav>.menu-item:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 50%;
+	right: 50%;
+	bottom: 0px;
+	background: #F15A5A;
+	height: 3px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.menu-item:hover:before,
+.menu-item:focus:before,
+.menu-item:active:before {
+	left: 0;
+	right: 0;
+}
+
+/*--------------------------------------------------------------
+# Below Header
+--------------------------------------------------------------*/
+#below-header {
+	position: relative;
+	width: 100%;
+	text-align: center;
+
+}
+
+.below-header-padding-top {
+	padding-top: 30px;
+}
+
+#below-header.webtoon {
+	margin-bottom: 15px;
+}
+
+@media (min-width: 992px) {
+	.below-header-padding-bottom {
+		padding-bottom: 15px;
+	}
+}
+
+#below-header img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*--------------------------------------------------------------
+# Main section 
+--------------------------------------------------------------*/
+
+main {
+	margin-top: 45px;
+	padding-bottom: 0px;
+	word-wrap: normal;
+	width: 100%;
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Jumbotron 
+--------------------------------------------------------------*/
+
+.jumbotron {
+	width: 100%;
+	background-color: #10ae98;
+	background-position: center top;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-align: center;
+	background-size: contain;
+	border-radius: 0;
+	margin-top: 45px;
+	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+}
+
+.jumbotron-img {
+	display: block;
+	height: auto;
+	object-fit: contain;
+	width: 100%;
+	visibility: hidden;
+}
+
+.jumbotron .site-title {
+	display: block;
+	font-size: 4rem;
+	line-height: 4rem;
+	clear: both;
+	margin-bottom: .5rem;
+	font-weight: 600;
+}
+
+.jumbotron .site-description {
+	font-size: 1.25rem;
+	font-style: italic;
+	font-weight: 500;
+}
+
+.comic-info {
+	position: absolute;
+}
+
+@media (min-width: 992px) {
+	.jumbotron .site-title {
+		font-size: 5.5rem;
+	}
+}
+
+.jumbotron .author {
+	font-style: italic;
+	font-weight: 600;
+}
+
+.jumbotron .container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media only screen and (max-width: 1920px) {
+	.jumbotron {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.jumbotron .site-title {
+		font-size: 2.5rem;
+		line-height: 2rem;
+		margin-bottom: 0rem;
+	}
+
+	.jumbotron .site-description {
+		font-size: 0.875rem;
+		line-height: 0.875rem;
+		font-style: italic;
+		font-weight: 500;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.jumbotron .site-title {
+		font-size: 1.75rem;
+		line-height: 1.25rem;
+		margin-top: 1.25rem;
+	}
+
+	.comic-item .comic-title {
+		max-width: 240px;
+	}
+}
+
+/*--------------------------------------------------------------
+# Content Area
+--------------------------------------------------------------*/
+
+#comics-section {
+	height: 1px;
+}
+
+@media (min-width: 992px) {
+	.site-content {
+		margin-top: 15px;
+	}
+}
+
+#left-col {
+	background-color: #fff;
+	max-width: 100%;
+}
+
+.left-title {
+	font-weight: 600;
+}
+
+.left-title:after {
+	background-color: #10ae98;
+	content: "";
+	display: block;
+	height: 2px;
+	margin: 4px auto 15px;
+}
+
+@media only screen and (min-width: 991px) {
+	#content {
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 1140px;
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	#content {
+		max-width: 100%;
+	}
+
+	#main-content-row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	#main-content-row .col-lg-4,
+	#main-content-row .col-lg-8 {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+.cat-links {
+	margin-right: 10px;
+}
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+
+#side-bar {
+	background-color: #10ae98;
+	color: #fff;
+	display: block;
+	clear: right;
+}
+
+#side-bar a {
+	color: #f8d94a;
+}
+
+#side-bar a:visited {
+	color: #fff;
+}
+
+#side-bar section {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	margin-bottom: 0;
+	padding: 1em 2em;
+	font-size: .875em;
+	letter-spacing: .05em;
+	line-height: 1.5em;
+}
+
+#side-bar section .widget-title {
+	text-align: left;
+	color: #FFF;
+}
+
+.about-avatar {
+	border: 0;
+	height: auto;
+	vertical-align: top;
+	max-width: 27.7%;
+	border-radius: 5%;
+	float: left;
+	margin: .5em 1em .5em 0;
+}
+
+#side-bar section ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0;
+}
+
+#side-bar .social-links li {
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 0 5px 1em;
+	letter-spacing: 0;
+}
+
+#side-bar,
+#side-bar section .widget-title,
+.social-links ul li a,
+#side-bar section#twitter ul li a {
+	color: #FFFFFF;
+	fill: currentColor;
+}
+
+#side-bar svg {
+	fill: currentColor;
+	height: 1.75rem;
+	width: 1.75rem;
+}
+
+.social-links ul li a span.fab,
+.social-links ul li a span.fas {
+	display: inline-block;
+	text-align: center;
+	background-color: #F15A5A;
+	border-radius: 5%;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+}
+
+.social-links ul li a:hover {
+	opacity: .8;
+}
+
+.social-links ul li a:hover {
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Comic Archive
+--------------------------------------------------------------*/
+
+#left-content {
+	position: relative;
+	padding: 30px;
+	background: #fff;
+}
+
+@media only screen and (min-width: 992px) {
+
+	#left-content,
+	#side-bar {
+		margin-bottom: 30px;
+	}
+}
+
+#comic-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+#comic-list>li {
+	position: relative;
+	border-bottom: 1px solid #f5f5f5;
+	height: 70px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+#comic-list>li:first-child {
+	border-top: 1px solid #f5f5f5;
+}
+
+#comic-list>li:hover {
+	background: #f5f5f5;
+}
+
+#comic-list>li>a {
+	display: block;
+	height: 70px;
+	white-space: nowrap;
+	cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+#comic-list>li>a:focus,
+#comic-list>li>a:focus .comic-list-item-details {
+	color: #F15A5A !important;
+}
+
+#comic-list>li>a:focus img {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+#comic-list>li:hover a,
+#comic-list>li:hover p {
+	color: #10ae98;
+}
+
+#comic-list>li:hover img {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+#comic-list>li>a:hover {
+	color: #10ae98;
+}
+
+.comic-item {
+	vertical-align: center;
+	height: 70px;
+	padding: 0;
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	text-align: left;
+}
+
+.comic-item .thmb {
+	position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+}
+
+.comic-item .rank {
+	position: absolute;
+	top: 11px;
+	left: 9px;
+	z-index: 10;
+	color: #fff;
+	font-size: 24px;
+	font-weight: 600;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.toocheke_latest_10_comics_widget .rank {
+	display: none;
+}
+
+#comic-list .thmb img {
+	width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.comic-item .comic-info {
+	height: 70px;
+	padding-left: 10px;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.comic-title-wrapper {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.comic-item .comic-title {
+	height: 21px;
+	font-size: 17px;
+	overflow: hidden;
+	min-width: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+}
+
+.comic-item .comic-list-item-details {
+	color: #848484;
+	margin-top: 3px;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+#side-bar #comic-list {
+	border: 1px solid #f5f5f5;
+}
+
+#side-bar .comic-item .comic-title,
+#side-bar .comic-item .comic-list-item-details {
+	color: #fff;
+}
+
+#side-bar .comic-item .comic-title {
+	max-width: 200px;
+}
+
+/*
+#side-bar .comic-post-date {
+	display: none;
+}
+*/
+
+#side-bar #comic-list>li:hover a,
+#side-bar #comic-list>li:hover p {
+	color: #10ae98;
+}
+
+/* Comic Pagination */
+
+.page-numbers {
+	display: inline-block;
+	text-align: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	margin-bottom: .5rem;
+	margin-right: .5rem;
+}
+
+.page-numbers {
+	color: #fff;
+	text-decoration: none;
+	background-color: #10ae98;
+	border: 1px solid #000000;
+}
+
+.page-numbers:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: #f15a5a;
+	border-color: #000000;
+}
+
+.page-numbers.current {
+	z-index: 1;
+	color: #000;
+	background-color: #f8d94a;
+	border-color: #000000;
+}
+
+.page-numbers:focus {
+	color: #fff;
+	background-color: #000;
+}
+
+
+/*--------------------------------------------------------------
+# Above Footer 
+--------------------------------------------------------------*/
+#above-footer {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+#above-footer.webtoon {
+	margin-top: 15px;
+}
+
+#above-footer img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*--------------------------------------------------------------
+# Footer 
+--------------------------------------------------------------*/
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 45px;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	color: #c5c5c5;
+	font-size: 0.75rem;
+	line-height: 0.75rem;
+}
+
+.copyright {
+	position: relative;
+	padding-top: 16px;
+	font-size: 14px;
+	line-height: 16px;
+	color: #c5c5c5;
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Comic Page
+--------------------------------------------------------------*/
+
+#comic-nav-top,
+#comic-nav-bottom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	height: 45px;
+	background-color: #fff;
+	z-index: 1000;
+	color: #343a40;
+}
+
+#comic-nav-top img,
+#comic-nav-bottom img {
+	max-height: 35px !important;
+	width: auto;
+}
+
+#comic-nav-top {
+	top: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#comic-nav-bottom {
+	bottom: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#comic {
+	background-color: #fff;
+	text-align: center;
+	padding: 15px;
+}
+
+#comic img {
+	clear: both;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto !important;
+	display: block;
+}
+
+
+
+#left-content img {
+	max-width: 100%;
+	height: auto;
+}
+
+#scroll-container {
+	text-align: left;
+}
+
+#home-scroll-container,
+#language-switch-container {
+	text-align: right;
+}
+
+#home-scroll-container,
+#language-switch-container {
+	position: fixed;
+	z-index: 2000;
+	right: 0;
+}
+
+#home-scroll-container {
+	bottom: 45px;
+	display: none;
+}
+
+#language-switch-container {
+	top: 45px;
+}
+
+#home-scroll-container .ScrollTop,
+#language-switch-container .SwitchLang {
+	display: inline-block;
+	color: white;
+	background: #f15a5a;
+	overflow: hidden;
+	line-height: 50px;
+	text-align: center;
+	border-radius: .75rem;
+}
+
+#home-scroll-container .ScrollTop {
+	margin-right: 10px;
+	max-width: 50px;
+	width: 50px;
+	height: 50px;
+}
+
+#language-switch-container .SwitchLang {
+	margin-top: 10px;
+	margin-right: 10px;
+	max-width: 80px;
+	width: 80px;
+	height: 50px;
+}
+
+#home-scroll-container .ScrollTop:hover,
+#language-switch-container .SwitchLang:hover {
+	background: #10ae98;
+	color: white;
+}
+
+.ScrollTop,
+.SwitchLang {
+	transition: all .5s;
+}
+
+.alt-lang {
+	display: none;
+}
+
+.fa-inverse {
+	color: #000;
+}
+
+.comic-total-comments,
+.comic-total-views,
+.comic-total-likes,
+.webtoon-comic-bookmark {
+	float: right;
+	margin-right: 10px;
+}
+
+#comic-bookmark {
+	font-size: initial;
+}
+
+#comic-analytics {
+	margin-top: 15px;
+}
+
+#comic-analytics i {
+	margin-right: 5px;
+}
+
+#comic-analytics a {
+	margin-right: 0px;
+}
+
+#comic-analytics .toocheke-likes-button {
+	padding: 0.375em 0px;
+}
+
+.comic-navigation {
+	float: right;
+	color: #343a40;
+}
+
+.comic-navigation a {
+	color: #343a40;
+	text-decoration: none;
+	transition: all .5s;
+}
+
+.comic-navigation i {
+	display: inline-block;
+	text-align: center;
+	line-height: 35px;
+	margin: 5px 5px;
+}
+
+#comic-nav-share i {
+	margin: 5px 0.15rem;
+}
+
+#comic-nav-share .fa-copy {
+	margin-right: 0.5rem;
+}
+
+.comic-navigation a:hover {
+	color: #10ae98;
+}
+
+.home.comic-navigation {
+	float: left;
+}
+
+#comic-nav-name-wrapper {
+	height: 50px;
+	line-height: 50px;
+	display: flex;
+}
+
+#comic-nav-name {
+	font-weight: 500;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#comic-nav-share {
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+#comic [id*="toocheke_social_media"] ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0;
+}
+
+#comic [id*="toocheke_social_media"] li {
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 0 5px 1em;
+	letter-spacing: 0;
+}
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.page-template-blog .post {
+	display: block !important;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+
+#comments {
+	margin-top: 30px;
+}
+
+.comments-title {
+	margin-bottom: 5px !important;
+}
+
+.comments-title,
+.comment-reply-title {
+	font-size: 22px;
+}
+
+#comments .mb-md-5,
+#comments .my-md-5 {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	margin-top: 0 !important;
+	margin-bottom: 30px !important;
+}
+
+#comments .mt-3,
+#comments .my-3 {
+	margin-top: 15px !important;
+}
+
+.comments-area {
+	text-align: left;
+}
+
+#comments h4 {
+	font-size: 18px
+}
+
+.comment-content,
+#commentform {
+	line-height: 1.25em;
+}
+
+#comments p,
+#commentform label,
+#commentForm p {
+	font-size: 14px !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+.form-control,
+.checkout-input,
+select.form-control {
+	height: 24px;
+	line-height: 24px;
+}
+
+#comments .medias,
+#respond {
+	padding: 0 15px;
+	margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+	.comment-metadata {
+		display: none !important;
+	}
+}
+
+.comment .comment {
+	margin-bottom: 7px;
+	margin-right: 7px;
+}
+
+.comment-reply-title {
+	margin-top: 15px;
+}
+
+.comment-content a {
+	word-wrap: break-word;
+}
+
+#comments .avatar {
+	max-height: 35px;
+	width: auto;
+	margin-right: 5px !important;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#comments .card .card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #fff;
+	border-bottom: none;
+	padding: 7px;
+}
+
+#comments .card {
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.002);
+	font-size: 14px;
+}
+
+.comment-content.card-text {
+	padding: 10px;
+}
+
+.chip {
+	display: inline-block;
+	border-radius: 16px;
+	font-size: 13px;
+	background-color: #10ae98;
+	border: none;
+	color: #fff;
+	height: initial;
+	min-height: 25px;
+	line-height: 25px;
+	margin-bottom: 0rem;
+	margin-right: .5rem;
+	padding: 0px 10px;
+	box-shadow: 0 1px 1px rgba(128, 128, 128, 0.18);
+	font-weight: 600;
+}
+
+.chip a {
+	color: #fff;
+}
+
+.chip a:hover {
+	text-decoration: none;
+}
+
+#comments .children .media .card-block {
+	background: rgba(0, 0, 0, 0.02);
+	padding: .75rem;
+}
+
+#comments .media p {
+	margin-bottom: .1rem;
+}
+
+.hoverable {
+	transition: box-shadow .5s;
+}
+
+.hoverable:hover {
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.comment-respond {
+	background-color: #f5f5f5;
+	z-index: 20;
+	padding: 5px;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/* Owl Carousel */
+
+.owl-carousel {
+	clear: both;
+	margin: 10px 0;
+}
+
+.current-post {
+	border: 3px solid #10ae98;
+}
+
+span.mask {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: #999999;
+	opacity: .4;
+	filter: alpha(opacity=40);
+}
+
+span.mask:hover {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.current-post span.mask {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+/* Sidebar calendar widget */
+
+#wp-calendar {
+	width: 100% !important;
+	font-size: 11px !important;
+	background-color: transparent;
+}
+
+#wp-calendar thead th {
+	background: transparent !important;
+	border: 1px solid #ffffff;
+	font-size: 11px !important;
+}
+
+#wp-calendar tbody td {
+	color: #ffffff;
+	text-align: center !important;
+	border: 1px solid #ffffff;
+	line-height: 2.5em !important;
+	transition: background 0.15s ease !important;
+	-webkit-transition: background 0.15s ease !important;
+	-o-transition: background 0.15s ease !important;
+	-moz-transition: background 0.15s ease !important;
+}
+
+#wp-calendar tbody td:hover {
+	background: rgba(0, 0, 0, .15) !important;
+	color: #ffffff;
+}
+
+#wp-calendar tbody td a {
+	display: block !important;
+	text-decoration: none !important;
+	background: #ffffff !important;
+	color: #000000 !important;
+}
+
+#wp-calendar tbody td:hover a {
+	background: #f15a5a !important;
+	color: #fff !important;
+}
+
+#wp-calendar tfoot td {
+	padding-top: 1px !important;
+	padding: 4px !important;
+}
+
+#wp-calendar caption {
+	cursor: pointer !important;
+	font-size: 13px !important;
+	text-transform: uppercase !important;
+	margin: 0 !important;
+	padding: 12px !important;
+	outline: 0 none !important;
+	background: #f15a5a !important;
+	color: #fff !important;
+}
+
+#wp-calendar caption:hover {
+	opacity: 0.8;
+}
+
+#wp-calendar tbody a {
+	display: block !important;
+	text-decoration: underline !important;
+}
+
+#wp-calendar th {
+	text-align: center !important;
+	padding: 7px 0 !important;
+	color: #ffffff !important;
+	font-weight: 700 !important;
+}
+
+#wp-calendar tfoot a {
+	color: #f8d94a;
+}
+
+/* Body Calendar */
+
+#archive-page-calendar-wrapper #wp-calendar thead th {
+	border: 1px solid #000;
+}
+
+#archive-page-calendar-wrapper #wp-calendar tbody td {
+	color: #000;
+	border: 1px solid #000;
+}
+
+#archive-page-calendar-wrapper #wp-calendar tbody td:hover {
+	background: rgba(0, 0, 0, .15) !important;
+	color: #000;
+}
+
+#archive-page-calendar-wrapper #wp-calendar tbody td a {
+	background-color: #10ae98 !important;
+	color: #fff !important;
+}
+
+#archive-page-calendar-wrapper #wp-calendar tbody td:hover a {
+	opacity: 0.8;
+}
+
+#archive-page-calendar-wrapper #wp-calendar th {
+	color: #000 !important;
+}
+
+#archive-page-calendar-wrapper #wp-calendar tfoot a {
+	color: #10ae98;
+}
+
+/* Tag Cloud */
+
+#side-bar .tagcloud {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+#side-bar .tagcloud a {
+	display: inline-block;
+	margin: 0.125rem;
+	padding: 0.4375rem;
+	background: transparent;
+	border: 1px solid #f8d94a;
+	transition: all 0.1s ease-in-out;
+	text-decoration: none;
+	color: #f8d94a;
+}
+
+#side-bar .tagcloud a:hover,
+#side-bar .tagcloud a:focus {
+	background: #f15a5a;
+	border: 1px solid #f15a5a;
+	color: #ffffff !important;
+	transform: scale(1.1);
+}
+
+/*--------------------------------------------------------------
+## Chapters
+--------------------------------------------------------------*/
+
+.chapter-thumbnail {
+	text-align: center;
+}
+
+.chapter-thumbnail img {
+	max-width: 100%;
+	height: auto;
+}
+
+.chapter-thumbnail a:hover img {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+.chapter-thumbnail a:focus img {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+.more-chapters-wrapper {
+	text-align: right;
+	margin-top: 15px;
+}
+
+.btn-group-xs>.btn,
+.btn-xs {
+	padding: 1px 5px !important;
+	font-size: 12px !important;
+	line-height: 1.5 !important;
+	border-radius: 3px !important;
+}
+
+.infinite-scroll #blog-pagination {
+	display: none !important;
+}
+
+@media only screen and (min-width: 991px) {
+	.infinite-wrap {
+		width: 100%;
+		padding-right: 40px;
+		padding-left: 40px;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 1140px;
+	}
+}
+
+/*--------------------------------------------------------------
+# Home Single Comic Layout
+--------------------------------------------------------------*/
+
+.single-comic-bookmark {
+	margin-left: 5px;
+}
+
+.single-comic-wrapper {
+	margin-top: 15px;
+	text-align: center;
+}
+
+#latest-comic {
+	margin-bottom: 30px;
+}
+
+#traditional-single-comic.add-margin {
+	margin-top: 30px;
+}
+
+#latest-comic,
+#collections-owl-carousel-wrapper {
+	display: none;
+}
+
+@media (max-width: 767px) {
+	.single-comic-wrapper {
+		margin-top: 0px;
+	}
+}
+
+.single-comic-navigation {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 30px;
+	background-color: #fff;
+	margin-bottom: 30px;
+}
+
+.single-comic-navigation a {
+	margin: 0 10px;
+	text-decoration: none;
+	font-size: 30px;
+}
+
+.single-comic-navigation img {
+	max-height: 35px;
+	width: auto;
+}
+
+@media (max-width: 767px) {
+	.single-comic-navigation a {
+		font-size: 23px;
+		margin: 0 8px;
+	}
+}
+
+@media (max-width: 555px) {
+	.single-comic-navigation a {
+		font-size: 20px;
+		margin: 0 6px;
+	}
+}
+
+@media (max-width: 400px) {
+	.single-comic-navigation a {
+		font-size: 18px;
+		margin: 0 4px;
+	}
+}
+
+.collection-cover:hover {
+	opacity: 0.75;
+	filter: alpha(opacity=75);
+}
+
+/*--------------------------------------------------------------
+# Swipe Icon
+--------------------------------------------------------------*/
+
+#swipe-instructions {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+#swipe-wrapper {
+	height: 100%;
+	font-size: 50px;
+	display: none;
+}
+
+.stage {
+	width: 100%;
+	padding: 15px 0;
+	text-align: center;
+}
+
+*,
+*:after,
+*:before {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.swipe {
+	display: inline-block;
+	color: #10ae98;
+	-moz-animation-name: swipe;
+	-webkit-animation-name: swipe;
+	animation-name: swipe;
+	-moz-animation-duration: 2700ms;
+	-webkit-animation-duration: 2700ms;
+	animation-duration: 2700ms;
+	-moz-animation-delay: 250ms;
+	-webkit-animation-delay: 250ms;
+	animation-delay: 250ms;
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+.swipe .fa-long-arrow-alt-left,
+.swipe .fa-long-arrow-alt-right {
+	font-size: 0.65em;
+	color: #595959;
+}
+
+.swipe .fa-long-arrow-alt-left {
+	-moz-transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(1.25em);
+	-ms-transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(1.25em);
+	-webkit-transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(1.25em);
+	transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(1.25em);
+}
+
+.swipe .fa-long-arrow-alt-right {
+	-moz-transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(-0.95em);
+	-ms-transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(-0.95em);
+	-webkit-transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(-0.95em);
+	transform: scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(-0.95em);
+}
+
+.swipe .fa-hand-o-up {
+	-moz-transform: scaleY(1.2);
+	-ms-transform: scaleY(1.2);
+	-webkit-transform: scaleY(1.2);
+	transform: scaleY(1.2);
+	-moz-animation-name: swipe-rotate;
+	-webkit-animation-name: swipe-rotate;
+	animation-name: swipe-rotate;
+	-moz-animation-duration: 2700ms;
+	-webkit-animation-duration: 2700ms;
+	animation-duration: 2700ms;
+	-moz-animation-delay: 250ms;
+	-webkit-animation-delay: 250ms;
+	animation-delay: 250ms;
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+@-moz-keyframes swipe {
+	0% {
+		-moz-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	10% {
+		-moz-transform: translateX(-0.1em);
+		transform: translateX(-0.1em);
+	}
+
+	20% {
+		-moz-transform: translateX(0.1em);
+		transform: translateX(0.1em);
+	}
+
+	30% {
+		-moz-transform: translateX(-0.1em);
+		transform: translateX(-0.1em);
+	}
+
+	40% {
+		-moz-transform: translateX(0.1em);
+		transform: translateX(0.1em);
+	}
+
+	50% {
+		-moz-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	100% {
+		-moz-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+
+@-webkit-keyframes swipe {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	10% {
+		-webkit-transform: translateX(-0.1em);
+		transform: translateX(-0.1em);
+	}
+
+	20% {
+		-webkit-transform: translateX(0.1em);
+		transform: translateX(0.1em);
+	}
+
+	30% {
+		-webkit-transform: translateX(-0.1em);
+		transform: translateX(-0.1em);
+	}
+
+	40% {
+		-webkit-transform: translateX(0.1em);
+		transform: translateX(0.1em);
+	}
+
+	50% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+
+@keyframes swipe {
+	0% {
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	10% {
+		-moz-transform: translateX(-0.1em);
+		-ms-transform: translateX(-0.1em);
+		-webkit-transform: translateX(-0.1em);
+		transform: translateX(-0.1em);
+	}
+
+	20% {
+		-moz-transform: translateX(0.1em);
+		-ms-transform: translateX(0.1em);
+		-webkit-transform: translateX(0.1em);
+		transform: translateX(0.1em);
+	}
+
+	30% {
+		-moz-transform: translateX(-0.1em);
+		-ms-transform: translateX(-0.1em);
+		-webkit-transform: translateX(-0.1em);
+		transform: translateX(-0.1em);
+	}
+
+	40% {
+		-moz-transform: translateX(0.1em);
+		-ms-transform: translateX(0.1em);
+		-webkit-transform: translateX(0.1em);
+		transform: translateX(0.1em);
+	}
+
+	50% {
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	100% {
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+
+@-moz-keyframes swipe-rotate {
+	0% {
+		-moz-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+
+	10% {
+		-moz-transform: scaleY(1.2) skew(5deg);
+		transform: scaleY(1.2) skew(5deg);
+	}
+
+	20% {
+		-moz-transform: scaleY(1.2) skew(-5deg);
+		transform: scaleY(1.2) skew(-5deg);
+	}
+
+	30% {
+		-moz-transform: scaleY(1.2) skew(5deg);
+		transform: scaleY(1.2) skew(5deg);
+	}
+
+	40% {
+		-moz-transform: scaleY(1.2) skew(-5deg);
+		transform: scaleY(1.2) skew(-5deg);
+	}
+
+	50% {
+		-moz-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+
+	100% {
+		-moz-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+}
+
+@-webkit-keyframes swipe-rotate {
+	0% {
+		-webkit-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+
+	10% {
+		-webkit-transform: scaleY(1.2) skew(5deg);
+		transform: scaleY(1.2) skew(5deg);
+	}
+
+	20% {
+		-webkit-transform: scaleY(1.2) skew(-5deg);
+		transform: scaleY(1.2) skew(-5deg);
+	}
+
+	30% {
+		-webkit-transform: scaleY(1.2) skew(5deg);
+		transform: scaleY(1.2) skew(5deg);
+	}
+
+	40% {
+		-webkit-transform: scaleY(1.2) skew(-5deg);
+		transform: scaleY(1.2) skew(-5deg);
+	}
+
+	50% {
+		-webkit-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+
+	100% {
+		-webkit-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+}
+
+@keyframes swipe-rotate {
+	0% {
+		-moz-transform: scaleY(1.2) skew(0);
+		-ms-transform: scaleY(1.2) skew(0);
+		-webkit-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+
+	10% {
+		-moz-transform: scaleY(1.2) skew(5deg);
+		-ms-transform: scaleY(1.2) skew(5deg);
+		-webkit-transform: scaleY(1.2) skew(5deg);
+		transform: scaleY(1.2) skew(5deg);
+	}
+
+	20% {
+		-moz-transform: scaleY(1.2) skew(-5deg);
+		-ms-transform: scaleY(1.2) skew(-5deg);
+		-webkit-transform: scaleY(1.2) skew(-5deg);
+		transform: scaleY(1.2) skew(-5deg);
+	}
+
+	30% {
+		-moz-transform: scaleY(1.2) skew(5deg);
+		-ms-transform: scaleY(1.2) skew(5deg);
+		-webkit-transform: scaleY(1.2) skew(5deg);
+		transform: scaleY(1.2) skew(5deg);
+	}
+
+	40% {
+		-moz-transform: scaleY(1.2) skew(-5deg);
+		-ms-transform: scaleY(1.2) skew(-5deg);
+		-webkit-transform: scaleY(1.2) skew(-5deg);
+		transform: scaleY(1.2) skew(-5deg);
+	}
+
+	50% {
+		-moz-transform: scaleY(1.2) skew(0);
+		-ms-transform: scaleY(1.2) skew(0);
+		-webkit-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+
+	100% {
+		-moz-transform: scaleY(1.2) skew(0);
+		-ms-transform: scaleY(1.2) skew(0);
+		-webkit-transform: scaleY(1.2) skew(0);
+		transform: scaleY(1.2) skew(0);
+	}
+}
+
+/* Comic Layout Options for Desktop and Mobile Users */
+
+#unspliced-comic {
+	display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+	#two-comic-options #spliced-comic {
+		display: none;
+	}
+
+	#two-comic-options #unspliced-comic {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	#two-comic-options #spliced-comic {
+		display: block;
+	}
+
+	#two-comic-options #unspliced-comic {
+		display: none;
+	}
+}
+
+.blog-wrapper {
+	text-align: left;
+}
+
+.page main {
+	padding-bottom: 15px;
+}
+
+.jumbotron-top,
+.header-below-jumbotron {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.header-below-jumbotron+main {
+	margin-top: 0px;
+}
+
+.home .header-below-jumbotron+main #content,
+.single-comic .header-below-jumbotron+main #content {
+	margin-top: 0px !important;
+}
+
+.page .header-below-jumbotron+main #content {
+	margin-top: 30px !important;
+}
+
+.home .header-fixed+main #content,
+.single-comic .header-fixed+main #content,
+.page .header-fixed+main #content {
+	padding-top: 30px;
+}
+
+@media only screen and (min-width: 991px) {
+
+	.header-below-jumbotron+main,
+	.hero-visible+.jumbotron-header+main {
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	main {
+		padding-top: 10px;
+	}
+
+	.jumbotron,
+	.single-comic-navigation {
+		margin-bottom: 0px;
+	}
+
+	.jumbotron-visible+main {
+		margin-top: 0px;
+		padding-top: 0px;
+	}
+
+	#header-comic+main {
+		padding-top: 0px;
+	}
+
+	.home .header-below-jumbotron+main,
+	.single-comic .header-below-jumbotron+main,
+	.page .header-below-jumbotron+main {
+		padding-top: 0px;
+	}
+
+	.page .header-below-jumbotron+main #content {
+		margin-top: 0px !important;
+	}
+}
+
+a.nav-link.btn-nav-continue-reading{
+	margin-top: 9px;
+	margin-left: 15px;
+	
+}
+a.nav-link.btn-nav-continue-reading, a.btn-sc-continue-reading{
+	font-weight: 700;
+	color: #fff !important;
+	text-transform: uppercase;
+}
+#side-bar section a.btn-sc-continue-reading{
+	width: 100%;
+}
+#searchform input, #searchform button{
+	margin: 0;
+	height: 40px;
+	float: left;
+}
+#searchform input{
+	font-size: 1em;
+}
+#searchform button{
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+#comic-social,
+#comic-support {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#comic-social>ul,
+#comic-support>ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0;
+}
+
+#comic-social li,
+#comic-support li {
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 0 5px;
+	letter-spacing: 0;
+}
+
+#comic-social li,
+#comic-support li {
+	font-size: 1.5em;
+	letter-spacing: 0;
+}
+
+#comic-support svg,
+#comic-social svg {
+	height: 1.5em;
+	width: 1.5em;
+}
+
+#comic-support svg,
+#comic-support path,
+#comic-social svg,
+#comic-social path {
+	fill: currentColor;
+}
+
+.card {
+	font-weight: 400;
+	border: 0;
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	background-color: transparent;
+}
+
+#character-wrapper.row>.col-md-4>.card {
+	margin-bottom: 30px;
+}
+
+/*--------------------------------------------------------------
+# Comic Archive
+--------------------------------------------------------------*/
+
+#comic-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 15px;
+	align-items: stretch;
+}
+
+#comic-grid img {
+	border: 1px solid #ccc;
+	box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+	max-width: 100%;
+}
+
+#comic-grid img:hover {
+	opacity: 0.7;
+}
+
+.comic-thumbnail-wrapper {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Comic Image Nav
+--------------------------------------------------------------*/
+
+.comic-image-nav {
+	max-height: 120px;
+	display: inline !important;
+}
+
+.comic-image-nav:hover {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+/*--------------------------------------------------------------
+# Series Styles
+--------------------------------------------------------------*/
+
+#series-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+	grid-gap: 15px;
+	align-items: stretch;
+	margin-bottom: 30px;
+}
+
+.series-thumbnail-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+.series-thumbnail-wrapper img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.series-rollover {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #10ae98;
+	color: #fff;
+	overflow: hidden;
+	width: 100%;
+	height: 0;
+	transition: .5s ease;
+}
+
+.series-thumbnail-wrapper:hover .series-rollover {
+	height: 100%;
+}
+
+.series-link,
+.series-link:hover {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	height: 90%;
+	color: #fff;
+	font-size: 14px;
+	line-height: 15px;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: left;
+	text-decoration: none;
+}
+
+.series-link:focus {
+	outline: none !important;
+}
+
+.series-link h3 {
+	font-size: 18px;
+	line-height: 18px;
+	padding-top: 5px;
+}
+
+.series-link .description {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.above-comic-widget {
+	margin-bottom: 15px;
+}
+
+.below-comic-widget {
+	margin-top: 15px;
+}
+
+.wp-block-image img {
+	max-width: 100%;
+	height: auto;
+}
+
+#comics-carousel img {
+	max-width: 100% !important;
+	width: 100% !important;
+}
+
+#comics-carousel .owl-dots {
+	display: none;
+}
+
+.analytics-wrapper {
+	font-weight: 500;
+	margin-right: 15px;
+}
+
+.likes-wrapper {
+	margin-right: 5px;
+}
+
+.modal-content {
+	color: #000 !important;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+
+#infinite-scroll .comic-title {
+	text-align: left;
+	font-weight: 500;
+	margin-top: 15px;
+	font-size: 1.75em;
+}
+
+#infinite-scroll #comic-social,
+#infinite-scroll #comic-support {
+	text-align: left;
+}
+
+#infinite-scroll #comic-social a,
+#infinite-scroll #comic-support a {
+	margin-right: 5px;
+}
+
+#infinite-scroll #comic-analytics {
+	margin-top: 0px;
+}
+
+.single-comic-total-comments a {
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Loader
+--------------------------------------------------------------*/
+
+#loader-container {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 0px;
+}
+
+.loader {
+	border: 3px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 3px solid #555;
+	width: 25px;
+	height: 25px;
+	-webkit-animation: spin 1.5s linear infinite;
+	/* Safari */
+	animation: spin 1.5s linear infinite;
+}
+
+/* Safari */
+
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/*-----------------------------------------------------------------------*/
+
+/** END of loader */
+
+/*-----------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------*/
+
+/** Single Page Styling*/
+
+/*-----------------------------------------------------------------------*/
+body.page #left-content {
+	padding: 0px;
+}
+
+article.page,
+.page article.post,
+.page-template-comic-collections #left-content,
+.page-template-top-ten-comics #left-content,
+.page-template-series-genres #left-content,
+.page-template-comic-characters #left-content,
+.page-template-comic-chapters #left-content {
+	padding: 30px !important;
+}
+
+.page-hero {
+	min-height: 250px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	text-align: center;
+
+
+	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.page-hero,
+.inside-page-hero {
+	position: relative;
+}
+
+/*--------------------------------------------------------------
+## No Sidebar
+--------------------------------------------------------------*/
+@media only screen and (min-width: 992px) {
+	.nosidebar .col-lg-8 {
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+.nosidebar .col-lg-4,
+.nosidebar #sidebar {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+## Chapters navigation
+--------------------------------------------------------------*/
+#chapters-drodpown {
+	padding: 0px 5px;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+#chapter-navigation {
+	padding-top: 15px;
+	text-align: center;
+}
+
+.chapters-nav-label {
+
+	font-weight: bold;
+	display: inline-block;
+	padding: 0px;
+	margin: 0;
+}
+
+.single-comic-navigation .chapters-nav-label {
+	font-size: 1.33333em;
+	line-height: 35px;
+}
+
+.chapter-inline-nav,
+.chapter-footer-dropdown {
+	display: inline-block;
+}
+
+.chapter-inline-dropdown {
+	margin-bottom: 25px;
+}
+
+.chapter-footer-nav {
+	line-height: 35px;
+	overflow: hidden;
+	position: absolute;
+	max-height: 35px;
+	margin-top: 5px;
+	display: inline-block;
+}
+
+.chapter-footer-nav i {
+	margin: 0px 5px;
+}
+
+@media only screen and (max-width: 575px) {
+
+	.chapter-footer-nav,
+	.chapter-footer-dropdown {
+		display: none;
+	}
+
+	.chapter-inline-nav {
+		line-height: 35px;
+	}
+
+	#footer-series-link {
+		display: inline-block;
+		max-width: 50px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 100%;
+	}
+}
+
+/*--------------------------------------------------------------
+## Comic archive segmented by Chapters
+--------------------------------------------------------------*/
+.comic-archive-date {
+	width: 140px;
+	display: inline-block;
+}
+
+.comic-archive-title {
+	margin-left: 10px;
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# WooCommerce
+--------------------------------------------------------------*/
+@media only screen and (min-width: 992px) {
+
+	.woocommerce .col2-set .col-1,
+	.woocommerce-page .col2-set .col-1,
+	.woocommerce .col2-set .col-2,
+	.woocommerce-page .col2-set .col-2 {
+		max-width: 48% !important;
+	}
+}
+
+/*--------------------------------------------------------------
+## Transcript
+--------------------------------------------------------------*/
+#transcript-wrapper {
+	margin: 15px auto;
+	max-width: 1200px;
+	text-align: left;
+	font-family: 'Courier New', monospace;
+}
+
+#transcript {
+	line-height: 18px;
+	padding: 15px;
+	padding-top: 0px;
+}
+
+#transcript-wrapper .panel-heading {
+	padding: 15px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#transcript-wrapper .panel-heading h3 {
+	padding: 0px;
+	margin: 0px;
+}
+
+#transcript-wrapper .panel-heading h3 a {
+	outline: none !important;
+	text-decoration: none !important;
+	font-weight: bold;
+}
+
+#transcript-wrapper .panel {
+	border: 1px solid #000;
+}
+
+#transcript hr,
+.toocheke-hr {
+	border-top: 1px solid #000;
+}
+
+#transcript hr {
+	margin-top: 0px;
+}
+
+.panel-icon {
+	float: right;
+}
+
+#transcript-wrapper .panel-heading a:before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f106";
+	float: right;
+	transition: all 0.5s;
+}
+
+#transcript-wrapper .panel-heading.active a:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+/*--------------------------------------------------------------
+## Comic Archive Menu
+--------------------------------------------------------------*/
+
+
+#archive-menu {
+	margin-bottom: 15px;
+	padding-left: 0;
+	list-style: none;
+}
+
+#archive-menu li {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+#archive-menu li::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 50%;
+	right: 50%;
+	bottom: 0px;
+	background: #10ae98;
+	height: 3px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+#archive-menu li:hover::before,
+#archive-menu li:focus::before,
+#archive-menu li:active::before {
+	left: 0;
+	right: 0;
+}
+
+#archive-menu li a {
+	padding-right: .5rem;
+	padding-left: .5rem;
+	display: block;
+	color: #10ae98;
+	text-decoration: none;
+}
+
+#archive-menu li a:hover {
+	color: #F15A5A;
+}
+
+#archive-menu li:hover::before {
+	background: #F15A5A;
+}
+
+/* Active (current) year tab. wp_get_archives() marks the current
+   page's link with aria-current="page"; give it a permanent version
+   of the same hover treatment so it stays visible without hovering. */
+#archive-menu li a[aria-current="page"] {
+	color: #F15A5A;
+	font-weight: 700;
+}
+
+#archive-menu li:has(> a[aria-current="page"])::before {
+	left: 0;
+	right: 0;
+	background: #F15A5A;
+}
+
+.grid-container {
+	display: grid;
+	grid-gap: 15px;
+	margin-bottom: 15px;
+}
+
+.grid-four-cols {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-three-cols {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-two-cols {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+@media only screen and (max-width: 1023px) {
+	.grid-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+@media only screen and (max-width: 500px) {
+	.grid-container {
+		grid-template-columns: auto;
+	}
+}
+
+#copy-tooltip {
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	font-weight: bold;
+	padding: 0px 10px;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.single-comic-navigation a.disabled,
+.comic-navigation a.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+/*
+These are stylings for the manga elements
+Includes Home page, series posts, volume posts and chapter posts
+*/
+/*--------------------------------------------------------------
+# Manga Series
+--------------------------------------------------------------*/
+.manga-grid-list-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 30px;
+	width: 100%;
+	padding-bottom: 30px;
+}
+
+@media (max-width: 1023px) {
+	.manga-grid-list-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 599px) {
+	.manga-grid-list-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.manga-grid-item-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	text-decoration: none !important;
+	min-width: 0;
+  	width: 100%;
+}
+
+
+.manga-grid-item-thumbnail {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	aspect-ratio: 2/3;
+}
+
+.manga-grid-item-thumbnail img {
+	display: block;
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+/* Title styling */
+.manga-grid-item-title {
+	margin-top: 10px;
+	font-size: 14pt;
+	height: auto;
+	font-weight: bold;
+	line-height: 1em;
+	text-align: center;
+	color: #333;
+
+}
+
+
+
+/*--------------------------------------------------------------
+# Manga Volumes
+--------------------------------------------------------------*/
+.manga-related-list-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 30px;
+	width: 100%;
+	padding-bottom: 30px;
+}
+
+
+@media (max-width: 599px) {
+	.manga-related-list-container {
+		grid-template-columns: 1fr;
+	}
+}
+
+.manga-related-item-container {
+width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 160px auto;
+  align-content: start;
+  grid-column-gap: 10px;
+	text-decoration: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	text-decoration: none !important;
+}
+
+.nosidebar .manga-related-item-container{
+	 grid-template-columns: 200px auto;
+}
+@media (max-width: 599px) {
+	.manga-related-item-container{
+	 grid-template-columns: 160px auto !important;
+}
+}
+.manga-related-info-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding-left: 5px;
+}
+
+.manga-data-pages{
+	color: #999;
+	line-height: 1em;
+}
+@media (min-width: 768px) {
+	 .col-md-7 {
+        display: flex;
+        flex-direction: column;
+    }
+.manga-volume-purchase-options, .manga-series-nav{
+	margin-top: auto;
+
+
+}
+}
+.btn-manga-volume-buy-link {
+	text-transform: uppercase;
+	font-weight:bold;
+	margin-bottom: 5px;
+	min-width: 105px;
+}
+.manga-thumbnail {
+    position: relative; /* <- important for ::after positioning */
+}
+/* dark hue overlay */
+.manga-thumbnail::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	/* initially transparent */
+	transition: background 0.3s ease;
+}
+
+.manga-grid-item-container:hover .manga-grid-item-thumbnail::after, .manga-related-item-thumbnail:hover::after   {
+	background: rgba(0, 0, 0, 0.2);
+	/* dark hue on hover */
+}
+
+/* Fade-in animation */
+.fade-in {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in:nth-child(1) {
+	animation-delay: 0.1s;
+}
+
+.fade-in:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+.fade-in:nth-child(4) {
+	animation-delay: 0.4s;
+}
+
+/* add more if needed */
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.manga-creator {
+	font-size: 16px;
+	font-style: italic;
+}
+
+.btn-manga-chapter-link {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.btn-manga-chapter-link i {
+	vertical-align: middle;
+}
+
+.manga-info-table {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	border: 2px solid #000;
+	margin-bottom: 30px;
+}
+
+.manga-info-row {
+	display: flex;
+	flex-direction: column;
+}
+
+.manga-info-row+.manga-info-row {
+	border-top: 2px solid #000;
+}
+
+.manga-info-col+.manga-info-col {
+	border-top: 2px solid #000;
+}
+
+.manga-info-col {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+	.manga-info-row {
+		flex-direction: row;
+	}
+
+	.manga-info-col+.manga-info-col {
+		border-top: none;
+		border-left: 2px solid #000;
+	}
+}
+
+.manga-info-key {
+	font-weight: 500;
+	font-size: 1.125rem;
+}
+
+.manga-info-value {
+	font-weight: 500;
+	font-size: .8rem;
+	letter-spacing: .16ch;
+	color: #777777;
+	text-transform: uppercase;
+}
+
+.manga-info-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.manga-info-tag {
+	display: flex;
+	padding: 4px 20px 2px 20px;
+	font-weight: bold;
+	font-size: .8rem;
+	letter-spacing: .16ch;
+	color: #666666 !important;
+	text-transform: uppercase;
+	background-color: #efefef;
+	text-decoration: none !important;
+}
+
+.manga-info-tag:hover{
+	background-color: #666666;
+	color: #fff !important;
+}
+
+.btn-outline-black {
+	color: #000;
+	border: #000 solid 2px;
+}
+
+.btn-outline-black:hover {
+	color: #fff;
+	background-color: #000;
+	border-color: #000;
+}
+/* Filter Form Container */
+.manga-series-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 0px;
+    justify-content: flex-start;
+    font-size: 0.875rem;
+    align-items: stretch; /* stretch children to same height */
+	height: 30px;
+	overflow: hidden;
+}
+
+/* Wrapper for each field to control alignment */
+.manga-series-filter-form .filter-field {
+    display: flex;
+    align-items: stretch; /* ensure internal alignment */
+}
+
+/* Select and button */
+.manga-series-filter-form select,
+.manga-series-filter-form button {
+    display: block;
+    height: 30px; /* same height for both */
+    padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+    appearance: none;
+}
+
+.manga-series-filter-form button.disabled{
+  cursor: default !important;
+  pointer-events: none !important;
+  background-color: #ccc !important;
+  color: #111 !important;
+  border: none !important;
+}
+.manga-button-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #111;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Optional: custom select arrow */
+.manga-series-filter-form select {
+    background: #fff url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23333'/%3E%3C/svg%3E") no-repeat right 12px center;
+    background-size: 10px 6px;
+	 border: 1px solid #ccc;
+	 padding-right: 30px; 
+}
+
+.manga-series-filter-form button{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.manga-series-filter-form label{
+	margin-right: 10px;
+	text-transform: uppercase;
+}
+/* Responsive */
+@media (max-width: 767px) {
+    .manga-series-filter-form {
+        flex-direction: column;
+        gap: 10px;
+		height: auto;
+        overflow: visible;
+    }
+    .manga-series-filter-form .filter-field {
+        width: 100%;
+    }
+    .manga-series-filter-form select,
+    .manga-series-filter-form button {
+        width: 100%;
+    }
+}
+
+.toocheke-hr.manga-hr{
+	border-top: 1px dotted !important;
+}
+
+.manga-breadcrumb, .manga-volume-nav{
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 0.25rem 1rem;
+}
+.manga-volume-nav{
+	font-size: 1.75rem;
+display: block;
+  padding: .75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #e9ecef;
+  border-radius: .25rem;
+  	text-align: center;
+	text-decoration: none !important;
+	color: #000;
+
+}
+.manga-volume-nav:hover{
+	background-color: #666666;
+	color: #fff !important;
+}
+
+/*swipe styling*/
+.manga-reader, .manga-reader #content, .manga-reader main, .manga-reader #left-content, .manga-reader #left-col, .manga-reader-container,  .manga-reader [class*="col-"] {
+   margin: 0;
+    padding: 0px;
+}
+.manga-reader header, .manga-reader .jumbotron, .manga-reader footer, .manga-reader .col-lg-4, .manga-reader #home-scroll-container{
+	display:none !important;
+}
+.manga-reader main, .manga-reader #left-content, .manga-reader #left-col, .manga-reader-container {
+   background-color: #2e2e2e;
+}
+.manga-reader main {
+    overflow: hidden;
+    transition-duration: 0ms;
+ 
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  }
+.manga-reader .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+
+   .manga-reader [class*="col-"]{
+	 flex: 0 0 100%;
+    max-width: 100%;
+   }
+   .manga-reader #content{
+    max-width: 100%;
+   }
+  .manga-reader-container {
+	  position: fixed;      
+  top: 0;
+  left: 0;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+  z-index: 9999; 
+  }
+   .manga-reader-container img {
+    display: block;
+    width: auto;
+    height: 100vh !important;
+
+  }
+ .manga-reader-container.two-pages img {
+    position: absolute;
+  }
+  .ltr.manga-reader-container.two-pages swiper-slide:nth-child(even) img {
+    left: 0;
+  }
+   .ltr.manga-reader-container.two-pages swiper-slide:nth-child(odd) img {
+    right: 0;
+  }
+    .rtl.manga-reader-container.two-pages swiper-slide:nth-child(even) img {
+    right: 0;
+  }
+   .rtl.manga-reader-container.two-pages swiper-slide:nth-child(odd) img {
+    left: 0;
+  }
+  swiper-container {
+  width: 1480px;
+  width: 100%;
+  height: 100vh;
+  justify-content: flex-end;
+  transform-origin: 0px 0px;
+  display: flex;
+  transition: all 400ms ease 0s;
+
+}
+
+swiper-slide {
+  text-align: center;
+  background-color: #2e2e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 400ms ease 0s;
+  padding: 0px;
+}
+.btn-manga-close-reader{
+  border: solid 2px #fff;
+  border-radius: 0;
+  text-decoration: none;
+  font-weight: bold;
+  background: #000;
+  color: #fff !important;
+}
+.btn-manga-close-reader:hover {
+  background-color: #fff;
+  color: #000 !important;
+  border: solid 2px #fff;
+}
+/*Manga Comic Nav*/
+.manga-page-nav {
+  position: fixed;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  z-index: 99999;
+  width: 100vw;
+  padding: 10px 20px;
+  display: none;
+}
+
+.manga-page-nav a {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+.manga-page-nav a:hover {
+  color: #10ae98;;
+  text-decoration: none;
+}
+
+#manga-page-top-nav{
+  font-size: 24px;
+  font-weight: 500;
+  top: 0;
+}
+
+#manga-page-bottom-nav {
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+#manga-meta-nav {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#manga-title-bar {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+}
+
+#manga-title-bar .chapter-title {
+  width: calc(100% - 100px);
+  height: auto;
+  color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#manga-title-bar .page-wrapper {
+  width: 100px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #757575;
+  text-align: end;
+}
+
+#manga-comic-actions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  align-items: flex-end;
+}
+
+.manga-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 225px;
+  height: auto;
+  font-size: 20px;
+  align-items: center;
+  max-width: 350px;
+  padding: 12px 0 15px 0;
+  border: 2px solid #fff;
+  margin-bottom: 15px;
+}
+
+
+
+.manga-nav-wrapper a {
+  margin-right: 15px;
+}
+
+#manga-page-options {
+  display: flex;
+  flex-direction: row;
+  width: 225px;
+  justify-content: flex-end;
+  margin-left: auto;
+  max-height: 80%;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+#manga-page-top-nav svg {
+  fill: #fff;
+  width: 35px;
+  height: 35px;
+  rotate: 180deg;
+}
+
+.manga-page-nav a:hover svg {
+  fill: #10ae98;
+}
+
+.page-icons-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.page-icons-wrapper svg,
+.page-icons-wrapper path {
+  color: #fff;
+  stroke: #fff;
+}
+
+.page-icons-wrapper.one-page {
+  margin-right: 20px;
+}
+
+.page-icons-wrapper.two-pages {
+  margin-right: 20px;
+  padding-top: 10px;
+}
+
+.page-icons-wrapper.fullscreen {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  width: auto;
+}
+
+.full-screen-path {
+  fill: #fff;
+}
+
+.page-icons-wrapper .make-two-pages {
+  display: flex;
+  flex-direction: row;
+}
+
+.page-icons-wrapper.one-page .icon-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.page-icons-wrapper .icon-text {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.page-icons-wrapper {
+  cursor: pointer;
+}
+
+.page-icons-wrapper:hover,
+.page-icons-wrapper:hover svg,
+.page-icons-wrapper:hover path {
+  color: #10ae98;
+  stroke: #10ae98;
+}
+
+.page-icons-wrapper:hover .full-screen-path {
+  fill: #10ae98;
+}
+swiper-container {
+  --swiper-navigation-color: #10ae98;
+  --swiper-pagination-color: #10ae98;
+}
+.manga-dropdown{
+	font-size: 16px;
+	padding: 0px 0.325rem;
+	margin-top:5px;
+}
+#manga-swiper{
+	position: relative;
+}
+/* CSS for the Loader Container (overlay) */
+#swiper-loader-container {
+    position: absolute; /* Position it over the swiper */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent white background */
+    z-index: 10; /* Make sure it's above the Swiper */
+    display: flex; /* Center the spinner */
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition when hiding */
+}
+
+/* CSS for the Spinner (simple border animation) */
+.spinner {
+    border: 8px solid #f3f3f3; 
+    border-top: 8px solid #10ae98; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+}
+
+/* Hide the loader once content is ready */
+#swiper-loader-container.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevents interaction with the invisible overlay */
+}
+
+.swiper-zoom-container.is-loading {
+    position: relative;
+}
+.swiper-zoom-container.is-loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 5px solid #f3f3f3;
+    border-top-color: #10ae98;
+    border-radius: 50%;
+    animation: manga-page-spin 1s linear infinite;
+    pointer-events: none;
+}
+@keyframes manga-page-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.manga-nav-wrapper hr {
+  border-top: 2px solid #fff;
+  width: 90%;
+}
+.manga-protected-content .chama-protected-content-cta{
+	   position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 70vw;
+        text-align: center;
+}
+.single-manga_series .chama-protected-content-cta, .single-manga_volume .chama-protected-content-cta{
+margin-bottom: 15px;
+}
+@media only screen and (max-width: 767px) {
+	#manga-page-options{
+		display:none;
+	}
+	.manga-reader-container img {
+  height: auto !important;
+}
+.manga-breadcrumb{
+	font-size: 14px;
+}
+}
+
+/* Click-to-next comic wrapper */
+.click-to-next-wrapper[data-next-href] {
+    cursor: pointer;
+}
+/* Characters template */
+.character-thumb-link {
+  display: block;
+}
+
+.character-thumb-link img {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.character-thumb-link:hover img {
+  opacity: 0.75;
+  transform: scale(1.03);
+}
+.collection-thumbnail, .chapter-thumbnail{
+	line-height: 1.35em;
+}
+/*--------------------------------------------------------------
+# Chama
+--------------------------------------------------------------*/
+.chamawp-page .jumbotron {
+	display: none !important;
+}
+
+@media only screen and (min-width: 991px) {
+
+	.chamawp-page main {
+		margin-top: 90px;
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	.chamawp-page main {
+		padding-top: 0px !important;
+	}
+}
+
+/*-----------------------------------------------------------------------*/
+
+/** END Single Page Styling*/
+
+/*-----------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Guttenberg Support
+--------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------*/
+
+/** END of Guttenberg Support */
+
+/*-----------------------------------------------------------------------*/
